@@ -1,26 +1,21 @@
 package com.drac.controller;
 
-import java.io.File;
-import java.util.Date;
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.drac.model.Patient;
 import com.drac.service.IPatientService;
 import com.drac.utils.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.io.File;
+import java.util.List;
 
 @RestController
 @RequestMapping("/Patient")
 
 public class PatientController {
+	//public static final Logger logger = LoggerFactory.getLogger(PatientController.class);
 
 	private IPatientService patientService;
 
@@ -73,6 +68,7 @@ public class PatientController {
 
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public ResponseEntity<List<Patient>> getAll() {
+		//logger.debug("Get All Patient");
 		List<Patient> patientList = (List<Patient>) patientService.getAll();
 		if (patientList.isEmpty()) {
 			return new ResponseEntity<List<Patient>>(HttpStatus.NO_CONTENT);
