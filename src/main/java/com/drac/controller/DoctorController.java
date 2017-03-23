@@ -1,18 +1,13 @@
 package com.drac.controller;
 
-import java.util.List;
-
+import com.drac.model.Doctor;
+import com.drac.service.IDoctorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import com.drac.model.Doctor;
-import com.drac.service.IDoctorService;
+import java.util.List;
 
 @RestController
 @RequestMapping("/Doctor")
@@ -53,7 +48,7 @@ public class DoctorController {
 		}
 	}
 
-	@RequestMapping(value = "/List", method = RequestMethod.GET)
+	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public ResponseEntity<List<Doctor>> getAll() {
 		List<Doctor> doctorList = (List<Doctor>) doctorService.getAll();
 		if (doctorList.isEmpty()) {
@@ -72,7 +67,7 @@ public class DoctorController {
 		} else {
 			doctorService.delete(id);
 
-			return new ResponseEntity<Void>(HttpStatus.GONE);
+			return new ResponseEntity<Void>(HttpStatus.OK);
 		}
 	}
 

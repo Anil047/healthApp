@@ -55,28 +55,11 @@
         <appender-ref ref="FILE"/>
     </appender>
 
-
-    <root level="WARN">
-
-        <appender-ref ref="HEALTH_APP_LOG"/>
-
-    </root>
-
-    <root level="INFO">
-
-        <appender-ref ref="HEALTH_APP_LOG"/>
-
-    </root>
-
     <root level="DEBUG">
 
-        <appender-ref ref="STDOUT"/>
+        <!--<appender-ref ref="HEALTH_APP_LOG"/>-->
+        <appender-ref ref="FILE"/>
 
     </root>
 
-    <root level="ERROR">
-
-        <appender-ref ref="HEALTH_APP_LOG"/>
-
-    </root>
 </configuration>

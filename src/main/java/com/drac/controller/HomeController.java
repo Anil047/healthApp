@@ -5,7 +5,7 @@ import com.drac.model.JwtToken;
 import com.drac.model.LoginUser;
 import com.drac.model.ResponseObj;
 import com.drac.service.IAppUserService;
-import com.drac.service.impl.JwtServiceImpl;
+import com.drac.service.impl.JwtService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,19 +21,19 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/home")
 public class HomeController {
     private IAppUserService iAppUserService;
-    private JwtServiceImpl jwtService;
+    private JwtService jwtService;
 
     @Autowired
     public HomeController(IAppUserService iAppUserService) {
         this.iAppUserService = iAppUserService;
     }
 
-    public JwtServiceImpl getJwtService() {
+    public JwtService getJwtService() {
         return jwtService;
     }
 
     @Autowired
-    public void setJwtService(JwtServiceImpl jwtService) {
+    public void setJwtService(JwtService jwtService) {
         this.jwtService = jwtService;
     }
 

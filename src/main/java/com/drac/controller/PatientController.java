@@ -30,7 +30,7 @@ public class PatientController {
 		if (StringUtils.isNotNull(patient.getEncodedFileInString())) {
 			System.out.println("File Extension: " + patient.getExtensionOfFile());
 			System.out.println("File in encoded form: " + patient.getEncodedFileInString());
-			String fileLocation = new File("src/main/resources/static").getAbsolutePath();
+			String fileLocation = new File("/home/anil/Documents/Drac/Learning/code/Angular/march8-2017/health-app/resources/img").getAbsolutePath();
 			String fileName = String.valueOf(System.currentTimeMillis()).concat(patient.getExtensionOfFile());
 			if (patientService.upload(patient.getEncodedFileInString(), fileLocation, fileName)) {
 				patient.setImagePath(fileName);
@@ -61,6 +61,7 @@ public class PatientController {
 
 			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
 		} else {
+			patient.setImagePath(existingPatient.getImagePath());
 			patientService.save(patient);
 			return new ResponseEntity<Void>(HttpStatus.OK);
 		}

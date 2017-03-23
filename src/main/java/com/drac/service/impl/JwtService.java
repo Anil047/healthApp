@@ -18,7 +18,7 @@ import java.util.concurrent.TimeUnit;
  * Created by anil on 3/17/17.
  */
 @Service
-public class JwtServiceImpl {
+public class JwtService {
     @Value("${jwt.expire.hours}")
     private Long expireHours;
 

@@ -1,7 +1,7 @@
 package com.drac.configuration;
 
 import com.drac.model.JwtToken;
-import com.drac.service.impl.JwtServiceImpl;
+import com.drac.service.impl.JwtService;
 import io.jsonwebtoken.JwtException;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
@@ -21,15 +21,15 @@ public class JwtAspect {
 
     @Value("${jwt.auth.header}")
     String authHeader;
-    private JwtServiceImpl jwtService;
+    private JwtService jwtService;
     private HttpServletRequest httpServletRequest;
 
-    public JwtServiceImpl getJwtService() {
+    public JwtService getJwtService() {
         return jwtService;
     }
 
     @Autowired
-    public void setJwtService(JwtServiceImpl jwtService) {
+    public void setJwtService(JwtService jwtService) {
         this.jwtService = jwtService;
     }
 
